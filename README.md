@@ -25,4 +25,50 @@ docker-compose up -d
 docker-compose down
 ```
 
+## Проверка репликации
+
+```bash
+# Статус репликации на slave
+docker exec mysql-slave mysql -uroot -prootpass -e "SHOW SLAVE STATUS\G" | grep Running
+
+# Тестовая запись на master
+docker exec mysql-master mysql -uroot -prootpass sakila -e \
+  "CREATE TABLE test_replication (id INT AUTO_INCREMENT PRIMARY KEY, msg VARCHAR(50)); \
+   INSERT INTO test_replication (msg) VALUES ('Репликация работает!');"
+
+# Проверка на slave (через 2 сек)
+sleep 2
+docker exec mysql-slave mysql -uroot -prootpass sakila -e "SELECT * FROM test_replication;"
+```
+
+## Параметры подключения
+
+![Параметры подключения](screenshots/ПараметрыПодключения.png)
+
+## Особенности реализации
+- Использован плагин аутентификации `mysql_native_password` для пользователя `repl` (совместимость с репликацией в MySQL 8.0)
+- Slave настроен в режиме `read-only` для предотвращения случайной записи
+- Данные хранятся в директориях `master-data/` и `slave-data/` на хосте
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
