@@ -50,11 +50,32 @@ docker exec mysql-slave mysql -uroot -prootpass sakila -e "SELECT * FROM test_re
 - Slave настроен в режиме `read-only` для предотвращения случайной записи
 - Данные хранятся в директориях `master-data/` и `slave-data/` на хосте
 
+## Скриншоты
+См. каталог screenshots/
 
+Скриншот 1: Конфигурация master
 
+![Конфигурация master](screenshots/01-master-config.png)
 
+Скриншот 2: Конфигурация slave
 
+![Конфигурация slave](screenshots/02-slave-config.png)
 
+Скриншот 3: Статус контейнеров
+
+![Статус контейнеров](screenshots/03-containers.png)
+
+Скриншот 4: Статус master
+
+![Статус master](screenshots/04-master-status.png)
+
+Скриншот 5: Статус репликации
+
+![Статус репликации](screenshots/05-slave-status.png)
+
+Скриншот 6: Тест репликации
+
+![Тест репликации](screenshots/06-replication-test.png)
 
 
 
