@@ -112,9 +112,9 @@ docker exec mysql-slave mysql -uroot -prootpass sakila -e "SELECT * FROM test_re
 
 ![Блок-хема](screenshots/БлокСхема.png)
 
+### 4. Режимы работы серверов
 
-
-
+![Режим работы серверов](screenshots/РежимыРаботыСерверов.png)
 
 
 
