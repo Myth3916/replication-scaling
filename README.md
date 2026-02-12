@@ -118,7 +118,7 @@ docker exec mysql-slave mysql -uroot -prootpass sakila -e "SELECT * FROM test_re
 
 
 ### 5. Как работает запрос (пример)
-	**Запрос**: «Показать профиль пользователя с email=user@example.com»
+	**Запрос** : «Показать профиль пользователя с email=user@example.com»
 1. Прокси получает запрос → определяет: нужен `users_auth` для проверки email
 2. Направляет запрос к `users_auth` → получает `id=1234`, `страна='RU'`
 3. Определяет горизонтальный шард: `страна='RU'` → `users_shard_ru`
